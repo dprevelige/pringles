@@ -1,3 +1,7 @@
+.hero-container {
+  padding: 0;
+}
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,23 +9,55 @@
 
 .hero {
   position: relative;
-  padding: 40px 24px;
-  min-height: 300px;
+  padding: var(--spacing-xl) var(--spacing-m);
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--color-black);
+  overflow: hidden;
+}
+
+.hero > div {
+  position: relative;
+  z-index: 1;
+  max-width: var(--content-max-width);
+  width: 100%;
 }
 
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  color: var(--background-color);
+  color: var(--color-white);
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 var(--spacing-s);
+}
+
+.hero p {
+  color: var(--color-white);
+  margin: var(--spacing-xs) 0;
+}
+
+.hero a:any-link {
+  color: var(--color-white);
+}
+
+.hero a.button:any-link {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+  padding: 12px 24px;
+  font-size: var(--body-font-size-s);
+}
+
+.hero a.button:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
 }
 
 .hero img {
@@ -32,6 +68,11 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 500px;
+    padding: var(--spacing-xxl) var(--spacing-l);
+  }
+
+  .hero h1 {
+    font-size: var(--heading-font-size-xxl);
   }
 }
