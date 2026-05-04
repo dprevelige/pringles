@@ -29,6 +29,46 @@
       ],
       "description": "Product category listing page with heading, subtitle, product grid with images and names, and promotional tiles",
       "blocks": []
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [".pagehero.hero-pringles-party-home"]
+        },
+        {
+          "name": "cards",
+          "instances": [".categorygrid .products-featured-row"]
+        },
+        {
+          "name": "columns",
+          "instances": [".promotiles .promotions-featured-row"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1-hero",
+          "name": "Hero Section",
+          "selector": ".pagehero.hero-pringles-party-home",
+          "style": "brand-red",
+          "blocks": ["hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2-products",
+          "name": "Product Categories Section",
+          "selector": ".cmp-experiencefragment--product-categories",
+          "style": null,
+          "blocks": ["cards"],
+          "defaultContent": [".content_wrapper.products-featured h2"]
+        },
+        {
+          "id": "section-3-promo",
+          "name": "Promotional Tiles Section",
+          "selector": ".cmp-experiencefragment--promo-tiles",
+          "style": "brand-red",
+          "blocks": ["columns"],
+          "defaultContent": []
+        }
+      ]
     }
   ]
 }
