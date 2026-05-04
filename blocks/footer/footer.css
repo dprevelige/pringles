@@ -2,7 +2,7 @@ footer {
   background-color: var(--light-color);
   font-size: var(--body-font-size-xs);
 }
-footer::before {
+div.footer::before {
   content: '';
     display: block;
     position: absolute;
