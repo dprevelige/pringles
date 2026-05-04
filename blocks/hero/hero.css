@@ -5,6 +5,36 @@
 
 .hero {
   position: relative;
+  min-height: 300px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.hero .hero-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero .hero-video-bg iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180%;
+  height: 180%;
+  transform: translate(-50%, -50%);
+  border: 0;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 40px 24px;
   min-height: 300px;
 }
@@ -13,6 +43,14 @@
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--background-color);
+}
+
+.hero p {
+  color: var(--background-color);
+}
+
+.hero a:any-link {
   color: var(--background-color);
 }
 
@@ -32,6 +70,11 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 500px;
+  }
+
+  .hero .hero-content {
+    padding: 60px 32px;
+    min-height: 500px;
   }
 }
