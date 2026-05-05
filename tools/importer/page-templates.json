@@ -29,46 +29,57 @@
       ],
       "description": "Product category listing page with heading, subtitle, product grid with images and names, and promotional tiles",
       "blocks": []
-      "blocks": [
-        {
-          "name": "hero",
-          "instances": [".pagehero.hero-pringles-party-home"]
-        },
-        {
-          "name": "cards",
-          "instances": [".categorygrid .products-featured-row"]
-        },
-        {
-          "name": "columns",
-          "instances": [".promotiles .promotions-featured-row"]
-        }
+    },
+    {
+      "name": "product-detail",
+      "urls": [
+        "http://www.pringles.com/en-us/products/pringles-crisps-sharp-white-cheddar.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-smoky-bacon.html",
+        "http://www.pringles.com/en-us/products/pringles-smoky-mesquite-bbq.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-smoky-cheddar.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-honey-mustard-classic.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-dill-pickle.html",
+        "http://www.pringles.com/en-us/products/pringles-texas-bbq-brisket.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-beer-braised-steak.html",
+        "http://www.pringles.com/en-us/products/pringles-mingles-cinnamon-sugar.html",
+        "http://www.pringles.com/en-us/products/pringles-mingles-jalapeno-and-queso.html",
+        "http://www.pringles.com/en-us/products/hot-ones-los-calientes-rojo.html",
+        "http://www.pringles.com/en-us/products/hot-ones-los-calientes-barbacoa.html",
+        "http://www.pringles.com/en-us/products/hot-ones-los-calientes-verdes.html",
+        "http://www.pringles.com/en-us/products/pringles-the-original-product.html",
+        "http://www.pringles.com/en-us/products/pringles-sour-cream-onion-product.html",
+        "http://www.pringles.com/en-us/products/pringles-bbq-product.html",
+        "http://www.pringles.com/en-us/products/pringles-cheddar-cheese-product.html",
+        "http://www.pringles.com/en-us/products/pringles-cheddar-sour-cream-product.html",
+        "http://www.pringles.com/en-us/products/pringles-pizza-product.html",
+        "http://www.pringles.com/en-us/products/pringles-ranch-product.html",
+        "http://www.pringles.com/en-us/products/pringles-salt-vinegar-product.html",
+        "http://www.pringles.com/en-us/products/pringles-lightly-salted-product.html",
+        "http://www.pringles.com/en-us/products/pringles-reduced-fat-original-product.html",
+        "http://www.pringles.com/en-us/products/pringles-snack-cups-the-original-product.html",
+        "http://www.pringles.com/en-us/products/pringles-snack-cups-sour-cream-onion-product.html",
+        "http://www.pringles.com/en-us/products/pringles-snack-cups-cheddar-cheese.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-snack-cups-bbq-product.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-snack-cups-6-flavors.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-snack-cups-3flavors-product.html",
+        "http://www.pringles.com/en-us/products/pringles-small-grab-and-go-assortment-pack.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-3-flavors-grab-n-go.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-bbq-mega.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-cheddar-cheese-mega.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-original-mega.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-sour-cream-onion-mega.html",
+        "http://www.pringles.com/en-us/products/pringles-grab-go-bbq-product.html",
+        "http://www.pringles.com/en-us/products/pringles-grab-go-cheddar-cheese-product.html",
+        "http://www.pringles.com/en-us/products/pringles-grab-go-the-original-product.html",
+        "http://www.pringles.com/en-us/products/pringles-grab-go-sour-cream-onion-product.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-pizza-grab-n-go.html",
+        "http://www.pringles.com/en-us/products/pringles-crisps-salt-and-vinegar-grab-n-go.html",
+        "http://www.pringles.com/en-us/products/pringles-mingles-dill-pickle-and-ranch.html",
+        "http://www.pringles.com/en-us/products/pringles-mingles-cheddar-and-sour-cream.html",
+        "http://www.pringles.com/en-us/products/pringles-mingles-sharp-white-cheddar-and-ranch.html"
       ],
-      "sections": [
-        {
-          "id": "section-1-hero",
-          "name": "Hero Section",
-          "selector": ".pagehero.hero-pringles-party-home",
-          "style": "brand-red",
-          "blocks": ["hero"],
-          "defaultContent": []
-        },
-        {
-          "id": "section-2-products",
-          "name": "Product Categories Section",
-          "selector": ".cmp-experiencefragment--product-categories",
-          "style": null,
-          "blocks": ["cards"],
-          "defaultContent": [".content_wrapper.products-featured h2"]
-        },
-        {
-          "id": "section-3-promo",
-          "name": "Promotional Tiles Section",
-          "selector": ".cmp-experiencefragment--promo-tiles",
-          "style": "brand-red",
-          "blocks": ["columns"],
-          "defaultContent": []
-        }
-      ]
+      "description": "Product detail page with product image, name, description, nutrition/ingredients, and promotional tiles. Metadata pagetype=pdp.",
+      "blocks": []
     }
   ]
 }
