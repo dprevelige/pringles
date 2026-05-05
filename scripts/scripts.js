@@ -22,6 +22,7 @@ import {
  * @param {Element} main The container element
  */
 function buildHeroBlock(main) {
+  if (main.querySelector('.pdpheader')) return;
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
   if (h1 && picture
