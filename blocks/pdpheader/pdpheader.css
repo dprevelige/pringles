@@ -1,0 +1,94 @@
+.pdpheader > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.pdpheader .pdpheader-image {
+  text-align: center;
+}
+
+.pdpheader .pdpheader-image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.pdpheader .pdpheader-details {
+  text-align: center;
+}
+
+.pdpheader .pdpheader-category a {
+  display: inline-block;
+  font-family: Oswald, oswald-fallback, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ea002a;
+  text-decoration: none;
+  margin-bottom: 8px;
+}
+
+.pdpheader h1 {
+  font-family: Oswald, oswald-fallback, arial, sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ea002a;
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+
+.pdpheader .pdpheader-details > p {
+  font-size: 16px;
+  color: #000;
+  line-height: 1.4;
+  margin: 0 0 16px;
+}
+
+.pdpheader .pdpheader-cta {
+  display: inline-block;
+  font-family: Oswald, oswald-fallback, arial, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  background-color: #ea002a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0;
+}
+
+.pdpheader .pdpheader-cta:hover {
+  background-color: #c00023;
+}
+
+@media (width >= 900px) {
+  .pdpheader > div {
+    flex-direction: row;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .pdpheader .pdpheader-image {
+    flex: 0 0 40%;
+  }
+
+  .pdpheader .pdpheader-image img {
+    max-width: 100%;
+  }
+
+  .pdpheader .pdpheader-details {
+    flex: 1;
+    text-align: left;
+  }
+
+  .pdpheader h1 {
+    font-size: 40px;
+  }
+
+  .pdpheader .pdpheader-details > p {
+    font-size: 18px;
+  }
+}
