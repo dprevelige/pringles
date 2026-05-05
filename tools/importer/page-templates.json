@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": ["https://www.pringles.com/en-us/home.html"],
+      "description": "Pringles US homepage with hero, product showcases, and promotional content",
+      "blocks": []
+    },
+    {
+      "name": "products-landing",
+      "urls": ["https://www.pringles.com/en-us/products.html"],
+      "description": "Products landing page with hero heading, category cards grid, SEO text content, and promotional tiles",
+      "blocks": []
+    },
+    {
+      "name": "product-category",
+      "urls": [
+        "https://www.pringles.com/en-us/products/all.html",
+        "https://www.pringles.com/en-us/products/new.html",
+        "https://www.pringles.com/en-us/products/favorites.html",
+        "https://www.pringles.com/en-us/products/mingles.html",
+        "https://www.pringles.com/en-us/products/hot-ones.html",
+        "https://www.pringles.com/en-us/products/party-stack.html",
+        "https://www.pringles.com/en-us/products/multipack.html",
+        "https://www.pringles.com/en-us/products/on-the-go.html"
+      ],
+      "description": "Product category listing page with heading, subtitle, product grid with images and names, and promotional tiles",
+      "blocks": []
+      "blocks": [
+        {
+          "name": "hero",
+          "instances": [".pagehero.hero-pringles-party-home"]
+        },
+        {
+          "name": "cards",
+          "instances": [".categorygrid .products-featured-row"]
+        },
+        {
+          "name": "columns",
+          "instances": [".promotiles .promotions-featured-row"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1-hero",
+          "name": "Hero Section",
+          "selector": ".pagehero.hero-pringles-party-home",
+          "style": "brand-red",
+          "blocks": ["hero"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2-products",
+          "name": "Product Categories Section",
+          "selector": ".cmp-experiencefragment--product-categories",
+          "style": null,
+          "blocks": ["cards"],
+          "defaultContent": [".content_wrapper.products-featured h2"]
+        },
+        {
+          "id": "section-3-promo",
+          "name": "Promotional Tiles Section",
+          "selector": ".cmp-experiencefragment--promo-tiles",
+          "style": "brand-red",
+          "blocks": ["columns"],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

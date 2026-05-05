@@ -1,3 +1,7 @@
+.hero-container {
+  padding: 0;
+}
+
 .hero-container .hero-wrapper {
   max-width: unset;
   padding: 0;
@@ -5,23 +9,80 @@
 
 .hero {
   position: relative;
+  min-height: 300px;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.hero .hero-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero .hero-video-bg iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180%;
+  height: 180%;
+  transform: translate(-50%, -50%);
+  border: 0;
+}
+
+.hero .hero-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 40px 24px;
   min-height: 300px;
 }
 
 .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  color: var(--color-white);
+  font-size: var(--heading-font-size-xl);
+  margin: 0 0 var(--spacing-s);
+}
+
+.hero p {
+  color: var(--color-white);
+  margin: var(--spacing-xs) 0;
+}
+
+.hero a:any-link {
+  color: var(--color-white);
+}
+
+.hero a.button:any-link {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+  padding: 12px 24px;
+  font-size: var(--body-font-size-s);
+}
+
+.hero a.button:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.hero p {
+  color: var(--background-color);
+}
+
+.hero a:any-link {
   color: var(--background-color);
 }
 
 .hero picture {
   position: absolute;
-  z-index: -1;
+  z-index: 0;
   inset: 0;
-  object-fit: cover;
-  box-sizing: border-box;
 }
 
 .hero img {
@@ -32,6 +93,16 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 40px 32px;
+    min-height: 500px;
+  }
+
+  .hero .hero-content {
+    padding: 60px 32px;
+    min-height: 500px;
+    padding: var(--spacing-xxl) var(--spacing-l);
+  }
+
+  .hero h1 {
+    font-size: var(--heading-font-size-xxl);
   }
 }
