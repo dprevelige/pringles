@@ -24,11 +24,21 @@ import {
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
-  // eslint-disable-next-line no-bitwise
-  if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
+  if (h1 && picture
+    // eslint-disable-next-line no-bitwise
+    && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const section = document.createElement('div');
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
+  } else if (h1) {
+    const firstSection = main.querySelector(':scope > div');
+    if (firstSection && firstSection.contains(h1)) {
+      const elems = [...firstSection.children];
+      const section = document.createElement('div');
+      section.append(buildBlock('hero', { elems }));
+      main.prepend(section);
+      if (firstSection.children.length === 0) firstSection.remove();
+    }
   }
 }
 
@@ -56,12 +66,99 @@ function autolinkModals(doc) {
 }
 
 /**
+ * Builds a cards block from a repeating pattern of picture + heading + text + link.
+ * @param {Element} main The container element
+ */
+function buildCardsBlock(main) {
+  main.querySelectorAll(':scope > div').forEach((section) => {
+    const pictures = section.querySelectorAll(':scope > p > picture');
+    if (pictures.length < 3) return;
+    const cards = [];
+    let current = null;
+    [...section.children].forEach((el) => {
+      if (el.querySelector('picture') && el.tagName === 'P') {
+        if (current) cards.push(current);
+        current = { image: el, texts: [] };
+      } else if (current && (el.tagName === 'H2' || el.tagName === 'P')) {
+        current.texts.push(el);
+      }
+    });
+    if (current) cards.push(current);
+    if (cards.length < 3) return;
+
+    const rows = cards.map((card) => {
+      const imgCell = document.createElement('div');
+      imgCell.append(card.image);
+      const textCell = document.createElement('div');
+      card.texts.forEach((t) => textCell.append(t));
+      return [imgCell, textCell];
+    });
+    const block = buildBlock('cards', rows);
+    const firstH2 = section.querySelector('h2');
+    if (firstH2 && !firstH2.closest('.cards')) {
+      firstH2.after(block);
+    } else {
+      section.prepend(block);
+    }
+  });
+}
+
+/**
+ * Removes metadata section flattened by DA.
+ * @param {Element} main The container element
+ */
+function removeExposedMetadata(main) {
+  const sections = main.querySelectorAll(':scope > div');
+  const lastSection = sections[sections.length - 1];
+  if (lastSection) {
+    const firstP = lastSection.querySelector('p');
+    if (firstP && firstP.textContent.trim() === 'Title') {
+      lastSection.remove();
+    }
+  }
+}
+
+/**
+ * Repairs section-metadata that was flattened into plain paragraphs by DA.
+ * Detects pattern: <p>style</p><p>value</p> at end of section and wraps in section-metadata div.
+ * @param {Element} main The container element
+ */
+function repairSectionMetadata(main) {
+  main.querySelectorAll(':scope > div').forEach((section) => {
+    const children = [...section.children];
+    for (let i = 0; i < children.length - 1; i += 1) {
+      const el = children[i];
+      const next = children[i + 1];
+      if (el.tagName === 'P' && next.tagName === 'P'
+        && el.textContent.trim().toLowerCase() === 'style'
+        && !el.querySelector('a, img, picture')) {
+        const metaDiv = document.createElement('div');
+        metaDiv.className = 'section-metadata';
+        const row = document.createElement('div');
+        const keyCell = document.createElement('div');
+        keyCell.textContent = 'style';
+        const valCell = document.createElement('div');
+        valCell.textContent = next.textContent.trim();
+        row.append(keyCell, valCell);
+        metaDiv.append(row);
+        el.replaceWith(metaDiv);
+        next.remove();
+        break;
+      }
+    }
+  });
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
 function buildAutoBlocks(main) {
   try {
+    removeExposedMetadata(main);
+    repairSectionMetadata(main);
     if (!main.querySelector('.hero')) buildHeroBlock(main);
+    if (!main.querySelector('.cards')) buildCardsBlock(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
