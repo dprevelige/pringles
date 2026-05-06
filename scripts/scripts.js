@@ -242,7 +242,12 @@ async function loadEager(doc) {
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
   }
-  const main = doc.querySelector('main');
+  let main = doc.querySelector('main');
+  if (!main) {
+    main = document.createElement('main');
+    while (doc.body.firstChild) main.append(doc.body.firstChild);
+    doc.body.prepend(main);
+  }
   if (main) {
     decorateMain(main);
     doc.body.classList.add('appear');
