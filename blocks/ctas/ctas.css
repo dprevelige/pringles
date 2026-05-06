@@ -1,0 +1,64 @@
+.ctas > div {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ctas .ctas-card {
+  position: relative;
+  text-align: center;
+}
+
+.ctas .ctas-card picture {
+  display: block;
+  line-height: 0;
+}
+
+.ctas .ctas-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ctas .ctas-card p,
+.ctas .ctas-card .button-container {
+  margin: 0;
+  text-align: center;
+}
+
+.ctas .ctas-card a,
+.ctas .ctas-card .button {
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
+  width: 200px;
+  font-family: Oswald, oswald-fallback, arial, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 12px 20px;
+  background-color: #ea002a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0;
+  border: 0;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.ctas .ctas-card a:hover,
+.ctas .ctas-card .button:hover {
+  background-color: #c00023;
+}
+
+@media (width >= 600px) {
+  .ctas > div {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .ctas .ctas-card {
+    flex: 1;
+  }
+}
